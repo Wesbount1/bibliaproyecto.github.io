@@ -1,0 +1,29 @@
+h1, h2, .textwhite {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.texto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+p, h2{
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+}
+
+span {
+    font-weight: bold;
+    color: red;
+}
+
+body {
+    background-color: lightgray;
+    font-family: 'Archivo Black', sans-serif;
+}

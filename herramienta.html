@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formateador Bíblico PRO</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    padding:20px;
+}
+
+textarea{
+    width:100%;
+    height:220px;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+button{
+    padding:10px;
+}
+
+#resultado{
+    margin-top:20px;
+    white-space: pre-wrap;
+    background:#f4f4f4;
+    padding:10px;
+    border-radius:8px;
+}
+</style>
+</head>
+<body>
+
+<h2>Formateador Bíblico PRO</h2>
+
+<textarea id="texto" placeholder="Pega el texto completo aquí..."></textarea>
+<br>
+<button onclick="formatear()">Formatear</button>
+
+<pre id="resultado"></pre>
+
+<script>
+function formatear(){
+    let texto = document.getElementById("texto").value.trim();
+    const salida = document.getElementById("resultado");
+
+    // vaciar salida y comprobar entrada
+    salida.innerHTML = "";
+    if (!texto) {
+        alert("Introduce algún texto antes de formatear");
+        return;
+    }
+
+    let lineas = texto.split("\n").map(l => l.trim()).filter(l => l !== "");
+
+    let resultado = "";
+
+    // Unir todo en una sola línea
+    let cuerpo = lineas.join(" ");
+    cuerpo = cuerpo.replace(/\s+/g, " ");
+
+    // Regex mejorado: número seguido opcionalmente de punto y espacio
+    let regex = /(\d+)\.?\s(.*?)(?=\s\d+\.?|$)/g;
+    let matches = cuerpo.matchAll(regex);
+
+    for (let match of matches) {
+        let numero = match[1];
+        let contenido = match[2].trim();
+
+        // si el contenido comienza con el mismo número nuevamente, eliminarlo
+        if (contenido.startsWith(numero + " ")) {
+            contenido = contenido.slice(numero.length + 1);
+        }
+
+        resultado += `<p><span>${numero}</span> ${contenido}</p>\n`;
+    }
+
+    // mostrar el código en texto plano (con etiquetas visibles)
+    salida.textContent = resultado;
+}
+</script>
+
+</body>
+</html>
