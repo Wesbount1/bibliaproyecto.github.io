@@ -1,8 +1,5 @@
 # 📖 Biblia (Reina Valera 1960) – Proyecto Estático
 
-![Estado del Proyecto](https://img.shields.io)
-![Versión](https://img.shields.io)
-
 Una interfaz web minimalista y rápida para consultar la **Santa Biblia (RVR1960)**. Este proyecto nace con el fin de ofrecer una navegación fluida entre libros y capítulos, optimizada para la lectura y el estudio personal.
 
 ## ✨ Características principaless
