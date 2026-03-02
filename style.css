@@ -6,6 +6,39 @@ p {
     text-align: justify;
 }
 
+/* responsive improvements */
+body {
+    margin: 0;
+    padding: 0 10px; /* small side padding on phones */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* narrower content area on large screens but fluid on small */
+.texto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* media query for phones */
+@media (max-width: 600px) {
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    p, .texto {
+        font-size: 1em;
+    }
+
+    a {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
 .texto {
     max-width: 800px;
     margin: 0 auto;
